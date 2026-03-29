@@ -1,428 +1,263 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>TV Apps</title>
-		<style>
-			body {
-				margin: 0;
-				padding: 0;
-				background: #1a1a1a;
-				font-family: Arial, sans-serif;
-			}
-			h2 {
-				text-align: center;
-				color: #fff;
-				padding: 20px;
-				margin: 0;
-				background: #333;
-			}
-			.app-grid {
-				display: grid;
-				gap: 15px;
-				padding: 20px;
-				justify-content: center;
-				grid-template-columns: repeat(6, 150px);
-				max-width: 1400px;
-				margin: 0 auto;
-			}
-			.app-button {
-				width: 150px;
-				height: 90px;
-				color: white !important;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				text-align: center;
-				font-size: 15px;
-				font-weight: 500;
-				border-radius: 10px;
-				border: 3px solid transparent;
-				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-				text-decoration: none;
-				outline: none;
-				transition: all 0.2s ease;
-				cursor: pointer;
-				box-sizing: border-box;
-				font-family: inherit;
-				position: relative;
-				overflow: hidden;
-			}
-			.app-button span {
-				color: white !important;
-				text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-				z-index: 1;
-				position: relative;
-			}
-			.app-grid .app-button:nth-child(1) {
-				background-color: #ff5722;
-			}
-			.app-grid .app-button:nth-child(2) {
-				background-color: #4caf50;
-			}
-			.app-grid .app-button:nth-child(3) {
-				background-color: #2196f3;
-			}
-			.app-grid .app-button:nth-child(4) {
-				background-color: #e91e63;
-			}
-			.app-grid .app-button:nth-child(5) {
-				background-color: #00bcd4;
-			}
-			.app-grid .app-button:nth-child(6) {
-				background-color: #ff9800;
-			}
-			.app-grid .app-button:nth-child(7) {
-				background-color: #3f51b5;
-			}
-			.app-grid .app-button:nth-child(8) {
-				background-color: #009688;
-			}
-			.app-grid .app-button:nth-child(9) {
-				background-color: #673ab7;
-			}
-			.app-grid .app-button:nth-child(10) {
-				background-color: #f44336;
-			}
-			.app-grid .app-button:nth-child(11) {
-				background-color: #8bc34a;
-			}
-			.app-grid .app-button:nth-child(12) {
-				background-color: #795548;
-			}
-			.app-grid .app-button:nth-child(13) {
-				background-color: #bfa84a;
-			}
-			.app-grid .app-button:nth-child(14) {
-				background-color: #990000;
-			}
-			.app-grid .app-button:nth-child(15) {
-				background-color: #1585c4;
-			}
-			.app-grid .app-button:nth-child(16) {
-				background-color: #c415b6;
-			}
-			.app-button:hover span {
-				color: black !important;
-				text-shadow: none;
-			}
-			.app-button.tv-focused {
-				background-color: #7c4dff !important;
-				border-color: white !important;
-				box-shadow: 0 0 30px rgba(124, 77, 255, 1) !important;
-				transform: scale(1.12) !important;
-				z-index: 10;
-			}
-			.app-button.tv-focused span {
-				color: black !important;
-				font-weight: bold;
-				text-shadow: none;
-			}
-			@media (pointer: coarse) {
-				body {
-					-webkit-user-select: none;
-					user-select: none;
-				}
-				.app-grid {
-					grid-template-columns: repeat(6, 150px);
-					gap: 20px;
-					padding: 30px;
-				}
-				.app-button {
-					width: 150px;
-					height: 90px;
-					font-size: 16px;
-					border-radius: 12px;
-				}
-				.app-button:focus {
-					background-color: #7c4dff;
-					border-color: white;
-					box-shadow: 0 0 25px rgba(124, 77, 255, 1);
-					transform: scale(1.12);
-				}
-				.app-button:focus span {
-					color: black;
-				}
-			}
-			@media (hover: hover) and (pointer: fine) {
-				.app-button:hover {
-					background-color: #7c4dff;
-					transform: scale(1.05);
-				}
-				.app-button:focus {
-					border-color: #bb86fc;
-					box-shadow: 0 0 10px rgba(124, 77, 255, 0.5);
-				}
-			}
-			@media (max-width: 1200px) {
-				.app-grid {
-					grid-template-columns: repeat(4, 150px);
-				}
-			}
-			@media (max-width: 768px) {
-				.app-grid {
-					grid-template-columns: repeat(3, 150px);
-					gap: 12px;
-					padding: 15px;
-				}
-				.app-button {
-					width: 150px;
-					height: 90px;
-					font-size: 14px;
-				}
-			}
-			@media (max-width: 500px) {
-				.app-grid {
-					grid-template-columns: repeat(2, 150px);
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<h2>ВСЕ ДЛЯ ТВ</h2>
-		<div class="app-grid" id="appGrid">
-			<a
-				class="app-button"
-				href="https://static.kion.ru/apk/kion_atv.apk"
-				download="KION.apk"
-				data-index="6"
-				aria-label="Скачать КИОН"
-				role="button"
-				><span>КИОН</span></a
-			>
-			<a
-				class="app-button"
-				href="https://mts.moy.su/d/ByeByeDPI-v1.7.3-universal-release.apk"
-				download="ByeByeDPI.apk"
-				data-index="7"
-				aria-label="Скачать ByeByeDPI"
-				role="button"
-				><span>ByeByeDPI</span></a
-			>
-			<a
-				class="app-button"
-				href="https://mts.moy.su/d/Light.HD.TV.v.4.5.0.apk"
-				download="LightHDTV.apk"
-				data-index="8"
-				aria-label="Скачать Лайт HD TV"
-				role="button"
-				><span>Лайт HD TV</span></a
-			>
-			<a
-				class="app-button"
-				href="https://mts.moy.su/d/RuStoreTV.apk"
-				download="RuStoreTV.apk"
-				data-index="9"
-				aria-label="Скачать RuStoreTV"
-				role="button"
-				><span>RuStoreTV</span></a
-			>
-			<a
-				class="app-button"
-				href="https://mts.moy.su/d/AptoidTV5.1.3.apk"
-				download="AptoidTV.apk"
-				data-index="10"
-				aria-label="Скачать Aptoid"
-				role="button"
-				><span>Aptoid TV</span></a
-			>
-			<a
-				class="app-button"
-				href="https://mts.moy.su/d/cobalt-arm.apk"
-				download="TizenTube.apk"
-				data-index="4"
-				aria-label="Скачать TizenTube"
-				role="button"
-				><span>TizenTube</span></a
-			>
-			<a
-				class="app-button"
-				href="https://mts.moy.su/d/cobalt-arm64.apk"
-				download="TizenTube-arm64.apk"
-				data-index="11"
-				aria-label="Скачать TizenTube Cobalt64"
-				role="button"
-				><span>TizenTube 64</span></a
-			>
-			<a
-				class="app-button"
-				href="https://4atv.usite.pro/app-lite-release.apk"
-				download="Lampa.apk"
-				data-index="0"
-				aria-label="Скачать Lampa"
-				role="button"
-				><span>Lampa</span></a
-			>
-			<a
-				class="app-button"
-				href="https://4atv.usite.pro/TorrServe_MatriX.141.Client-release.apk"
-				download="TorrServe.apk"
-				data-index="1"
-				aria-label="Скачать TorrServe"
-				role="button"
-				><span>TorrServe</span></a
-			>
-			<a
-				class="app-button"
-				href="https://4atv.usite.pro/VimuMediaPlayer11.01.apk"
-				download="VIMU.apk"
-				data-index="2"
-				aria-label="Скачать VIMU"
-				role="button"
-				><span>VIMU</span></a
-			>
-			<a
-				class="app-button"
-				href="https://4atv.usite.pro/X-plore_v4.46.12_b44612_Black_arm7_arm64_8.0_Patch.apk"
-				download="X-plore.apk"
-				data-index="5"
-				aria-label="Скачать X-plore"
-				role="button"
-				><span>X-plore</span></a
-			>
-			<a
-				class="app-button"
-				href="https://mts.moy.su/d/GetsTV_Android.apk"
-				download="GetsTV"
-				data-index="5"
-				aria-label="Скачать GetsTV"
-				role="button"
-				><span>GetsTV</span></a
-			>
-			<a
-				class="app-button"
-				href="https://mts.moy.su/d/11chanel_nash_dom_2.4.4_APKPure.apk"
-				download="11 канал Наш Дом"
-				data-index="5"
-				aria-label="Скачать 11 канал Наш Дом"
-				role="button"
-				><span>11 канал Наш Дом</span></a
-			>
-			<a
-				class="app-button"
-				href="https://mts.moy.su/d/Media_Station_X_v0.1.163.apk"
-				download="Media_Station_X"
-				data-index="5"
-				aria-label="Media_Station_X"
-				role="button"
-				><span>Media_Station_X v4.msxplayer.ru</span></a
-			>
-			<a
-				class="app-button"
-				href="https://mts.moy.su/d/VK_Video_.apk"
-				download="VK_Video"
-				data-index="5"
-				aria-label="VK_Video"
-				role="button"
-				><span>VK_Video</span></a
-			>
-			<a
-				class="app-button"
-				href="https://mts.moy.su/d/zona_3.0.50.apk"
-				download="zona"
-				data-index="5"
-				aria-label="zona"
-				role="button"
-				><span>ZONA</span></a
-			>
-		</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Apps</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #1a1a1a;
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+            margin: 0;
+            background: #333;
+        }
+        .app-grid {
+            display: grid;
+            gap: 15px;
+            padding: 20px;
+            justify-content: center;
+            grid-template-columns: repeat(6, 150px);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .app-button {
+            width: 150px;
+            height: 90px;
+            color: white !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 10px;
+            border: 3px solid transparent;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-decoration: none;
+            outline: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            box-sizing: border-box;
+            font-family: inherit;
+            position: relative;
+            overflow: hidden;
+        }
+        .app-button span {
+            color: white !important;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+            z-index: 1;
+            position: relative;
+        }
+        .app-grid .app-button:nth-child(1) { background-color: #FF5722; }
+        .app-grid .app-button:nth-child(2) { background-color: #4CAF50; }
+        .app-grid .app-button:nth-child(3) { background-color: #2196F3; }
+        .app-grid .app-button:nth-child(4) { background-color: #E91E63; }
+        .app-grid .app-button:nth-child(5) { background-color: #00BCD4; }
+        .app-grid .app-button:nth-child(6) { background-color: #FF9800; }
+        .app-grid .app-button:nth-child(7) { background-color: #3F51B5; }
+        .app-grid .app-button:nth-child(8) { background-color: #009688; }
+        .app-grid .app-button:nth-child(9) { background-color: #673AB7; }
+        .app-grid .app-button:nth-child(10) { background-color: #F44336; }
+        .app-grid .app-button:nth-child(11) { background-color: #8BC34A; }
+        .app-grid .app-button:nth-child(12) { background-color: #795548; }
+        .app-grid .app-button:nth-child(13) { background-color: #BFA84A; }
+        .app-grid .app-button:nth-child(14) { background-color: #990000; }
+        .app-grid .app-button:nth-child(15) { background-color: #1585c4; }
+        .app-grid .app-button:nth-child(16) { background-color: #c415b6; }
+        .app-button:hover span {
+            color: black !important;
+            text-shadow: none;
+        }
+        .app-button.tv-focused {
+            background-color: #7c4dff !important;
+            border-color: white !important;
+            box-shadow: 0 0 30px rgba(124, 77, 255, 1) !important;
+            transform: scale(1.12) !important;
+            z-index: 10;
+        }
+        .app-button.tv-focused span {
+            color: black !important;
+            font-weight: bold;
+            text-shadow: none;
+        }
+        @media (pointer: coarse) {
+            body {
+                -webkit-user-select: none;
+                user-select: none;
+            }
+            .app-grid {
+                grid-template-columns: repeat(6, 150px);
+                gap: 20px;
+                padding: 30px;
+            }
+            .app-button {
+                width: 150px;
+                height: 90px;
+                font-size: 16px;
+                border-radius: 12px;
+            }
+            .app-button:focus {
+                background-color: #7c4dff;
+                border-color: white;
+                box-shadow: 0 0 25px rgba(124, 77, 255, 1);
+                transform: scale(1.12);
+            }
+            .app-button:focus span {
+                color: black;
+            }
+        }
+        @media (hover: hover) and (pointer: fine) {
+            .app-button:hover {
+                background-color: #7c4dff;
+                transform: scale(1.05);
+            }
+            .app-button:focus {
+                border-color: #bb86fc;
+                box-shadow: 0 0 10px rgba(124, 77, 255, 0.5);
+            }
+        }
+        @media (max-width: 1200px) {
+            .app-grid {
+                grid-template-columns: repeat(4, 150px);
+            }
+        }
+        @media (max-width: 768px) {
+            .app-grid {
+                grid-template-columns: repeat(3, 150px);
+                gap: 12px;
+                padding: 15px;
+            }
+            .app-button {
+                width: 150px;
+                height: 90px;
+                font-size: 14px;
+            }
+        }
+        @media (max-width: 500px) {
+            .app-grid {
+                grid-template-columns: repeat(2, 150px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>ВСЕ ДЛЯ ТВ</h2>
+    <div class="app-grid" id="appGrid">
+        <a class="app-button" href="https://static.kion.ru/apk/kion_atv.apk" download="KION.apk" data-index="6" aria-label="Скачать КИОН" role="button"><span>КИОН</span></a>
+        <a class="app-button" href="https://disk.yandex.ru/d/FEhqkjq1VkmOPw" download="ByeByeDPI.apk" data-index="7" aria-label="Скачать ByeByeDPI" role="button"><span>ByeByeDPI</span></a>
+        <a class="app-button" href="https://disk.yandex.ru/d/NDEml-S9wovtqg" download="LightHDTV.apk" data-index="8" aria-label="Скачать Лайт HD TV" role="button"><span>Лайт HD TV</span></a>
+        <a class="app-button" href="https://disk.yandex.ru/d/CCIhqNPg9z_FGQ" download="Media_Station_X.apk" data-index="9" aria-label="Скачать Media StationX" role="button"><span>Media StationX</span></a>
+        <a class="app-button" href="https://disk.yandex.ru/d/zDA0n-Sml4gWJA" download="VK_Video.apk" data-index="10" aria-label="Скачать VK Video" role="button"><span>VK Video</span></a>
+        <a class="app-button" href="https://disk.yandex.ru/d/pVsbb-lgIeEgSA" download="TizenTube.apk" data-index="4" aria-label="Скачать Tizen Tube" role="button"><span>Tizen Tube</span></a>
+        <a class="app-button" href="https://disk.yandex.ru/d/oFFSVZJwvBduvg" download="TizenTube-arm64.apk" data-index="11" aria-label="Скачать Tizen Tube 64" role="button"><span>Tizen Tube 64</span></a>
+        <a class="app-button" href="https://4atv.usite.pro/app-lite-release.apk" download="Lampa.apk" data-index="0" aria-label="Скачать Lampa" role="button"><span>Lampa</span></a>
+        <a class="app-button" href="https://4atv.usite.pro/TorrServe_MatriX.141.Client-release.apk" download="TorrServe.apk" data-index="1" aria-label="Скачать TorrServe" role="button"><span>TorrServe</span></a>
+        <a class="app-button" href="https://4atv.usite.pro/VimuMediaPlayer11.01.apk" download="VIMU.apk" data-index="2" aria-label="Скачать VIMU" role="button"><span>VIMU</span></a>
+        <a class="app-button" href="https://4atv.usite.pro/X-plore_v4.46.12_b44612_Black_arm7_arm64_8.0_Patch.apk" download="X-plore.apk" data-index="5" aria-label="Скачать X-plore" role="button"><span>X-plore</span></a>
+        <a class="app-button" href="https://disk.yandex.ru/d/cGAZv0sSa3iZLg" download="GetsTV.apk" data-index="5" aria-label="Скачать GetsTV" role="button"><span>GetsTV</span></a>
+        <a class="app-button" href="https://disk.yandex.ru/d/AzIywvwp6yJafg" download="11 канал Наш Дом.apk" data-index="5" aria-label="Скачать 11 канал Наш Дом" role="button"><span>11 канал Наш Дом</span></a>
+        <a class="app-button" href="https://disk.yandex.ru/d/T77A56J2A31oWg" download="VoKino.apk" data-index="5" aria-label="Скачать VoKino" role="button"><span>VoKino</span></a>
+        <a class="app-button" href="https://disk.yandex.ru/d/GayaSL7cZ0xvsg" download="Zona.apk" data-index="5" aria-label="Zona" role="button"><span>ZONA</span></a>
+    </div>
 
-		<script>
-			;(function () {
-				const grid = document.getElementById('appGrid')
-				const buttons = Array.from(grid.querySelectorAll('.app-button'))
-				let columns = 6
-				let currentIndex = 0
+    <script>
+        (function() {
+            const grid = document.getElementById('appGrid');
+            const buttons = Array.from(grid.querySelectorAll('.app-button'));
+            let columns = 6;
+            let currentIndex = 0;
 
-				function updateColumns() {
-					const width = window.innerWidth
-					if (width <= 500) {
-						columns = 2
-					} else if (width <= 768) {
-						columns = 3
-					} else if (width <= 1200) {
-						columns = 4
-					} else {
-						columns = 6
-					}
-				}
+            function updateColumns() {
+                const width = window.innerWidth;
+                if (width <= 500) {
+                    columns = 2;
+                } else if (width <= 768) {
+                    columns = 3;
+                } else if (width <= 1200) {
+                    columns = 4;
+                } else {
+                    columns = 6;
+                }
+            }
 
-				function setFocus(index) {
-					buttons.forEach(btn => {
-						btn.classList.remove('tv-focused')
-						btn.blur()
-					})
-					if (buttons[index]) {
-						currentIndex = index
-						buttons[index].classList.add('tv-focused')
-						buttons[index].focus()
-						buttons[index].scrollIntoView({
-							behavior: 'smooth',
-							block: 'center',
-							inline: 'center',
-						})
-					}
-				}
+            function setFocus(index) {
+                buttons.forEach(btn => {
+                    btn.classList.remove('tv-focused');
+                    btn.blur();
+                });
+                if (buttons[index]) {
+                    currentIndex = index;
+                    buttons[index].classList.add('tv-focused');
+                    buttons[index].focus();
+                    buttons[index].scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+                }
+            }
 
-				function handleKeyDown(e) {
-					const key = e.key || e.keyCode
-					if (key === 'ArrowRight' || key === 39) {
-						e.preventDefault()
-						const newIndex = currentIndex + 1
-						if (newIndex < buttons.length) {
-							setFocus(newIndex)
-						}
-					} else if (key === 'ArrowLeft' || key === 37) {
-						e.preventDefault()
-						const newIndex = currentIndex - 1
-						if (newIndex >= 0) {
-							setFocus(newIndex)
-						}
-					} else if (key === 'ArrowDown' || key === 40) {
-						e.preventDefault()
-						const newIndex = currentIndex + columns
-						if (newIndex < buttons.length) {
-							setFocus(newIndex)
-						}
-					} else if (key === 'ArrowUp' || key === 38) {
-						e.preventDefault()
-						const newIndex = currentIndex - columns
-						if (newIndex >= 0) {
-							setFocus(newIndex)
-						}
-					} else if (key === 'Enter' || key === 13) {
-						e.preventDefault()
-						if (buttons[currentIndex]) {
-							const link = buttons[currentIndex].getAttribute('href')
-							if (link) {
-								window.location.href = link
-							}
-						}
-					}
-				}
+            function handleKeyDown(e) {
+                const key = e.key || e.keyCode;
+                if (key === 'ArrowRight' || key === 39) {
+                    e.preventDefault();
+                    const newIndex = currentIndex + 1;
+                    if (newIndex < buttons.length) {
+                        setFocus(newIndex);
+                    }
+                } else if (key === 'ArrowLeft' || key === 37) {
+                    e.preventDefault();
+                    const newIndex = currentIndex - 1;
+                    if (newIndex >= 0) {
+                        setFocus(newIndex);
+                    }
+                } else if (key === 'ArrowDown' || key === 40) {
+                    e.preventDefault();
+                    const newIndex = currentIndex + columns;
+                    if (newIndex < buttons.length) {
+                        setFocus(newIndex);
+                    }
+                } else if (key === 'ArrowUp' || key === 38) {
+                    e.preventDefault();
+                    const newIndex = currentIndex - columns;
+                    if (newIndex >= 0) {
+                        setFocus(newIndex);
+                    }
+                } else if (key === 'Enter' || key === 13) {
+                    e.preventDefault();
+                    if (buttons[currentIndex]) {
+                        const link = buttons[currentIndex].getAttribute('href');
+                        if (link) {
+                            window.location.href = link;
+                        }
+                    }
+                }
+            }
 
-				buttons.forEach((btn, index) => {
-					btn.addEventListener('click', function (e) {
-						currentIndex = index
-					})
-					btn.addEventListener('mouseenter', function () {
-						setFocus(index)
-					})
-				})
+            buttons.forEach((btn, index) => {
+                btn.addEventListener('click', function(e) {
+                    currentIndex = index;
+                });
+                btn.addEventListener('mouseenter', function() {
+                    setFocus(index);
+                });
+            });
 
-				document.addEventListener('keydown', handleKeyDown)
-				window.addEventListener('resize', updateColumns)
-				window.addEventListener('load', function () {
-					updateColumns()
-					setTimeout(() => setFocus(0), 100)
-				})
+            document.addEventListener('keydown', handleKeyDown);
+            window.addEventListener('resize', updateColumns);
+            window.addEventListener('load', function() {
+                updateColumns();
+                setTimeout(() => setFocus(0), 100);
+            });
 
-				if (document.readyState === 'complete') {
-					updateColumns()
-					setTimeout(() => setFocus(0), 100)
-				}
-			})()
-		</script>
-	</body>
+            if (document.readyState === 'complete') {
+                updateColumns();
+                setTimeout(() => setFocus(0), 100);
+            }
+        })();
+    </script>
+</body>
 </html>
